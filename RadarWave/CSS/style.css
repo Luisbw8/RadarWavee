@@ -1,0 +1,734 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --left-msg-bg: linear-gradient(to right, #4b79a1, #283e51);
+}
+
+body {
+    background: var(--left-msg-bg);
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', Arial, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* Cabeçalho fixo no topo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 10;
+}
+
+#cabeca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; 
+    top: 0;         
+    left: 0;
+    width: 100%; 
+    z-index: 10;
+    transition: top 0.3s ease; 
+}
+
+#cabeca.scrolled {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+#logo {
+    width: 100px;
+    margin: 0;
+    height: auto;
+}
+
+#menuLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    transition: 0.3s;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 15pt;
+    position: relative;
+}
+
+nav a::after {
+    content: " ";
+    width: 0%;
+    height: 4px;
+    background-color: #67cff1;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    opacity: .85;
+}
+
+/* Centralizando a animação e a imagem */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centralizando verticalmente */
+    height: 100vh;
+    padding-top: 50px;
+    /* Ajuste para o espaço acima */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    /* Alinhando verticalmente no centro */
+    justify-content: center;
+    gap: 150px;
+    /* Espaço entre a animação e a imagem */
+}
+
+/* Estilo da animação de texto */
+.msg-wrapper {
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+    /* Impedir que o texto empurre a imagem */
+    width: 700px;
+    /* Largura para a animação */
+    margin-left: 150px;
+}
+
+.msg {
+    display: inline-block;
+    color: white;
+    font-size: 4rem;
+    /* Tamanho da fonte */
+    font-weight: 700;
+    border-right: 3px solid #7dc4db;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    /* O texto ficará dentro da largura definida */
+    animation: typing 4s steps(75, end) forwards, blink-caret 0.75s step-end infinite, hide-caret 0s 7s forwards;
+}
+
+/* Animação de piscar do cursor */
+@keyframes blink-caret {
+    50% {
+        border-right-color: transparent;
+    }
+    
+}
+
+@keyframes hide-caret{
+    0%{
+        border-right-color: #7dc4db;
+    }
+    100%{
+        border-right-color: transparent;
+    }
+}
+
+/* Animação de escrita */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Estilo da imagem */
+.img-anime {
+    width: 600px;
+    /* Ajuste o tamanho conforme necessário */
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animação flutuante da imagem */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+#sobre1 {
+    width: 100%;
+    height: 350px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+#titulosobre {
+    width: 400px;
+    height: 140px;
+    margin-left: 10%;
+    margin-top: 7%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+#sobreConteudo {
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 10%;
+    margin-top: 5%;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3; 
+}
+
+#sobre2 {
+    margin-top: 5%;
+    font-size: 26px;
+    font-weight: 400;
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#corsubnau{
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+#container1 {
+    display: flex; /* Coloca as imagens lado a lado */
+    justify-content: space-between; /* Espaçamento entre as imagens */
+   
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+#container1:hover .cardprodutos{
+    opacity: .5;
+}
+#container1 .cardprodutos:hover{
+    opacity: 1;
+}
+.cardprodutos {
+    justify-content: space-between;
+    width: 350px; /* Cada card ocupará aproximadamente metade do espaço */
+    background-color: #f9f9f9;
+    border: 1px solid #bdbdbd;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: .5s;
+}
+.cardprodutos:hover{
+    transform: translateY(-10px);
+    background-color: #fff;
+}
+
+.cardprodutos img {
+    width: 200px; /* Tamanho da imagem */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 20px; /* Espaçamento inferior entre a imagem e o texto */
+}
+
+#serverM{
+    width: 55px; /* Tamanho da imagem */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 20px; /* Espaçamento inferior entre a imagem e o texto */
+}
+
+.arduinoescrita {
+    margin-left: 5%;
+    font-weight: 600;
+    color: #316cda;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#txtarduino, #txtled, #txtproto, #txtsensor, #txtmotor {
+    text-align: center;
+    line-height: 1.5;
+    color: #383838;
+    font-size: 18px; /* Um pouco menor para ajuste de layout */
+    font-weight: 400;
+}
+
+#Imgarduino, #Imgproto, #Imgled, #Imgsensor, #Imgmotor {
+    margin-top: 5%;
+    margin-left: 5%; 
+    
+}
+
+#corescrita{
+    color: #316cda;
+}
+
+/* Estilos para a seção do Chatbot */
+#chatbot {
+    background-color: #ffffff; /* Fundo branco para a seção */
+    padding: 50px 0; /* Espaçamento interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatbot-content {
+    display: flex;
+    align-items: flex-start; /* Alinha ao topo */
+    gap: 20px; /* Espaço entre o texto e o vídeo */
+    width: 80%; /* Largura da área de conteúdo */
+}
+
+.chatbot-text {
+    flex: 1; /* Ocupar o espaço disponível para o texto */
+    text-align: left; /* Alinhar o texto à esquerda */
+    font-size: 1.75rem;
+    max-width: 500px;
+    padding: 100;
+    word-wrap: break-word;
+}
+
+.chatbot-video {
+    flex: 1; /* Ocupar o espaço disponível para o vídeo */
+    display: flex;
+    justify-content: flex-end; /* Alinhar o vídeo à direita */
+}
+
+#chatbotao{
+    width: 500px;
+    height: 50px;
+    background: var(--left-msg-bg);
+    border-radius: 20px;
+    border: none;
+}
+
+#letrabtn{
+    font-size: 15px;
+    color: white;
+}
+
+#jogo {
+    background-color: black; /* Fundo preto */
+    padding: 50px; /* Espaçamento interno */
+}
+
+.jogo-content {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centralizar verticalmente */
+    justify-content: space-around; /* Espaço entre imagem e texto */
+}
+
+.jogo-imagem img {
+    width: 600px; /* Largura da imagem */
+    height: auto; /* Manter proporção */
+}
+
+.jogo-texto {
+    max-width: 600px; /* Largura máxima do texto */
+    color: white; /* Cor do texto */
+}
+
+.jogo-texto p {
+    font-size: 1.60rem; /* Tamanho da fonte */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    margin: 0;
+}
+
+#jogobotao{
+    width: 500px;
+    height: 50px;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+}
+
+#letrabtnjogo{
+    font-size: 15px;
+    color: black;
+}
+
+#integrantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.integrantes-content p {
+    color: white;
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: 28.5%;
+}
+
+.img-rounded {
+    border-radius: 20px;
+    width: 20%;
+    margin-bottom: 20px;
+}
+
+.logo-etec {
+    width: 100px;
+    margin-top: 20px;
+}
+.menu-btn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none; /* Oculto por padrão em telas grandes */background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    
+   
+color: #000;
+    
+   
+position: absolute; /* Permite que ele seja posicionado de forma absoluta no container */
+    
+   
+right: 20px; /* Coloca-o a 20px da direita */
+    
+   
+top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    
+    
+z-index: 1000; /* Garante que ele esteja sobre outros elementos */
+}
+
+#menuLinks {
+    display: flex;
+    gap: 15px;
+}
+
+.desktop-menu {
+    display: flex; /* Exibe o menu padrão no desktop */
+    gap: 20px;
+  }
+
+.menu {
+    list-style-type: none;
+    display: none; /* O menu hambúrguer está escondido por padrão */
+  }
+
+.menu li {
+    display: inline;
+  }
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  /* Ícone do menu hambúrguer */
+.menu-icon {
+    display: none;
+  }
+@media (max-width: 800px) {
+    
+          /* Ajuste no cabeçalho */
+    .msg-wrapper {
+        margin-top: 10px; /* Ajuste este valor conforme necessário */
+    }
+    #cabeca.scrolled {
+        background-color: rgb(0, 0, 0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: 0.5s;
+    }
+    .menu-btn {
+        display: block; /* Exibe o botão nas telas menores */
+    }
+
+    #menuLinks {
+        display: none; /* Oculta o menu de links por padrão */
+        flex-direction: column;
+        position: right;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    #menuLinks.show {
+        display: flex; /* Exibe o menu ao clicar no botão */
+    }
+
+    #menuLinks a {
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #cabeca {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    /* Ajuste no logo */
+    #logo {
+        width: 80px;
+    }
+
+    /* Ajuste nos links do menu */
+
+    nav a {
+        font-size: 12pt;
+    }
+
+    /* Ajuste no container principal */
+    .container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    /* Ajuste no texto da animação */
+    .msg-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .msg {
+        font-size: 2.5rem; /* Reduzir o tamanho da fonte */
+    }
+
+    /* Ajuste na imagem */
+    .img-anime {
+        width: 300px; /* Reduzir o tamanho da imagem */
+    }
+
+    /* Seção 'sobre' */
+    #sobre1 {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    #titulosobre {
+        font-size: 24px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #sobreConteudo {
+        font-size: 18px;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    /* Ajuste nos cards de produtos */
+    #container1 {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 20px 20px 20px;
+    }
+
+    .cardprodutos {
+        width: 100%;
+        margin: 20px 20px;
+        margin-left: 20px;
+        
+    }
+
+    /* Ajuste na seção 'chatbot' */
+    .chatbot-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chatbot-video {
+        justify-content: center;
+    }
+
+    /* Seção 'jogo' */
+    .jogo-content {
+        flex-direction: column;
+    }
+
+    .jogo-imagem img {
+        width: 100%;
+    }
+
+    /* Ajuste na seção 'integrantes' */
+    .img-rounded {
+        width: 80%;
+        border-radius: 20px;
+    }
+    .sectionsumir{
+        display: none;
+    }
+.patrocinador-texto {
+    margin-left: auto; /* Alinha o texto à direita */
+    flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+    margin: 0; /* Remove margem padrão */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 10px; /* Espaço entre o texto e os ícones */
+    color: black; /* Garante que o texto seja preto */
+    font-size: 20px; /* Aumenta o tamanho da fonte do texto do patrocinador */
+}
+}
+
+#patrocinadores {
+    display: flex;
+    justify-content: center; /* Alinha os cards à esquerda */
+    align-items: center;
+    padding: 50px 10%; /* Espaçamento nas laterais */
+    background: var(--left-msg-bg); /* Fundo azul conforme padrão */
+    flex-wrap: wrap;
+}
+
+.patrocinador-card {
+    width: 344px; /* Largura do card */
+    height: 519px; /* Altura do card */
+    background-color: white; /* Fundo branco */
+    border: 2px solid #bdbdbd; /* Borda cinza */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    display: flex; /* Alinha itens em linha */
+    flex-direction: column; /* Direção da coluna */
+    align-items: center; /* Alinha verticalmente ao centro */
+    color: black; /* Cor do texto */
+    margin: 20px; /* Margem em volta do card */
+}
+
+.patrocinador-logo {
+    width: 200px; /* Ajuste o tamanho da imagem */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 10px; /* Espaço entre a imagem e o texto */
+    display: block; /* Assegura que a imagem seja tratada como bloco */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+}
+
+.patrocinador-texto {
+    margin-left: auto; /* Alinha o texto à direita */
+    flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+    margin: 0; /* Remove margem padrão */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 10px; /* Espaço entre o texto e os ícones */
+    color: black; /* Garante que o texto seja preto */
+    font-size: 1.5em; /* Aumenta o tamanho da fonte do texto do patrocinador */
+}
+
+#titulo-patrocinadores {
+    font-family: Arial, Helvetica, sans-serif; /* Ou outra fonte que preferir */
+    font-size: 36px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    color: white; /* Cor da fonte */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+#agradecimentos {
+    font-family: Arial, Helvetica, sans-serif; /* Ou outra fonte que preferir */
+    font-size: 20px; /* Tamanho da fonte */
+    color: white; /* Cor da fonte */
+    margin-bottom: 30px; /* Espaçamento inferior */
+}
+
+.social-links {
+    margin-top: 10px; /* Espaço acima dos ícones */
+    display: flex; /* Organiza os ícones em linha */
+    justify-content: center;
+}
+
+.social-links {
+    display: flex; /* Mantém os ícones em linha */
+    justify-content: flex-start; /* Alinha os ícones à esquerda */
+    margin-top: auto; /* Empurra os ícones para a parte inferior */
+}
+
+.social-links a {
+    color: #316cda; /* Cor do ícone */
+    font-size: 30px; /* Aumenta o tamanho dos ícones */
+    margin: 0 10px; /* Espaço entre os ícones */
+}
+
+/* Adiciona um estilo para que os ícones fiquem em linha, mas não um flex container */
+.social-links {
+    display: block; /* Faz os ícones ficarem em linha, mas não como flex */
+}
+#escritafinal{
+    text-align: center; /* Centraliza o texto */
+    margin: 0 auto; /* Adiciona margem automática para centralizar */
+    max-width: 90%;
+}
+
+/* Media queries para telas muito pequenas (ex: smartphones em modo retrato) */
+@media (max-width: 547px) {
+    .msg {
+        font-size: 2rem; /* Tamanho da fonte ainda menor */
+    }
+    .patrocinador-texto {
+        margin-left: auto; /* Alinha o texto à direita */
+        flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+        margin: 0; /* Remove margem padrão */
+        text-align: center; /* Centraliza o texto */
+        margin-bottom: 10px; /* Espaço entre o texto e os ícones */
+        color: black; /* Garante que o texto seja preto */
+        font-size: 22px; /* Aumenta o tamanho da fonte do texto do patrocinador */
+    }
+    
+    .sectionsumir{
+        display: none;
+    }
+
+    .img-anime {
+        width: 250px; /* Reduzir mais a imagem */
+    }
+    .sectionjogo{
+        display: none;
+    }
+
+    nav a {
+        font-size: 10pt; /* Reduzir o tamanho dos links do menu */
+    }
+
+    #chatbotao, #jogobotao {
+        width: 100%;
+        font-size: 12px;
+    }
+
+}
